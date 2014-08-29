@@ -1,0 +1,63 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:viewModel="clr-namespace:todoList.ViewModel" x:Class="todoList.Views.AddTask"
+        Title="{Binding Header}" Height="420" Width="530">
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#FFC2D6EE" Offset="0.897"/>
+            <GradientStop Color="#FFBBC4FF" Offset="0.249"/>
+        </LinearGradientBrush>
+    </Window.Background>
+    <Window.DataContext>
+        <viewModel:AddTaskViewModel/>
+    </Window.DataContext>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="250"/>
+            <ColumnDefinition Width="250"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="170"/>
+        </Grid.RowDefinitions>
+
+        <Label x:Name="LblHeader" FontSize="20"  Content="{Binding Header}" Grid.Column="1" Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Left" FontWeight="Bold" />
+
+        <Label x:Name="LblTitel" FontSize="13"  Grid.Column="1" Content="Titel:" Grid.Row="1"  VerticalAlignment="Center" HorizontalAlignment="Left"/>
+        <TextBox x:Name="TxtbTitel" FontSize="14"  Grid.Column="1" Grid.Row="1" Text="{Binding Titel, Mode=TwoWay}" VerticalAlignment="Center" HorizontalAlignment="Right" Width="180" Background="#FFE8E9FB"/>
+
+        <Label x:Name="LblCat" FontSize="13"  Grid.Column="1" Grid.Row="2" Content="Category:" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+        <TextBox x:Name="TxtbCat" FontSize="14"  Grid.Column="1" Grid.Row="2" Text="{Binding Category, Mode=TwoWay}" VerticalAlignment="Center" HorizontalAlignment="Right" Width="180" Background="#FFE8E9FB"/>
+
+        <Label x:Name="LblPrio" FontSize="13"  Grid.Column="1" Grid.Row="3" Content="Priority:" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+        <ComboBox x:Name="CombobPrio" FontSize="14"  Grid.Column="1" Grid.Row="3" Text="{Binding Priority, Mode=TwoWay}" VerticalAlignment="Center" HorizontalAlignment="Right" Width="180" Background="#FFE8E9FB">
+            <ComboBoxItem Content="0"/>
+            <ComboBoxItem Content="1"/>
+            <ComboBoxItem Content="2"/>
+            <ComboBoxItem Content="3"/>
+            <ComboBoxItem Content="4"/>
+            <ComboBoxItem Content="5"/>
+        </ComboBox>
+
+        <Label x:Name="lblStartDate" FontSize="13"  Grid.Column="1" Grid.Row="4" Content ="Start-Date:" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+        <DatePicker x:Name="txtbStartDate" FontSize="12"  Grid.Column="1" Grid.Row="4" Text="{Binding StartDate, Mode=TwoWay}" VerticalAlignment="Center" HorizontalAlignment="Right"  Width="180"/>
+
+        <Label x:Name="lblEndDate" FontSize="13"  Grid.Column="2" Grid.Row="4" Content ="End-Date:"   VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5,0,0,0"/>
+        <DatePicker x:Name="txtbEndDate" FontSize="12"  Grid.Column="2" Grid.Row="4" Text="{Binding EndDate, Mode=TwoWay}" VerticalAlignment="Center" HorizontalAlignment="Right"  Width="180" Background="#FFE8E9FB" />
+
+        <Label x:Name="lblDes" FontSize="13"  Grid.Column="1" Grid.Row="5" Content="Description:" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+        <TextBox x:Name="txtbDes" FontSize="12"  Grid.Column="1" Grid.Row="6" Text="{Binding Description, Mode=TwoWay}" VerticalAlignment="Top" HorizontalAlignment="Left" Width="495" Height="100" Grid.ColumnSpan="2" Background="#FFE8E9FB"/>
+
+        <Button x:Name="AddTaskOk_Button" Content="Ok" FontSize="20" Background="Green" Command="{Binding OkCmd}" Grid.Row="6" Grid.Column="1" Width="200" Height="30" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
+        <Button x:Name="AddTaskCancel_Button" Content="Cancel" FontSize="20" Background="Red" Grid.Row="6" Grid.Column="2" Width="200" Height="30" VerticalAlignment="Bottom" HorizontalAlignment="Center" Command="{Binding CancelCmd}"/>
+        <CheckBox Content="Email-Notify Teammembers" IsChecked="{Binding MailBoxChecked, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Visibility="{Binding MailBoxCheckedVisible, Mode=TwoWay}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.ColumnSpan="2" Grid.Column="1" Grid.Row="6" Margin="0,70,0,0" Background="#FFE8E9FB"/>
+
+    </Grid>
+</Window>

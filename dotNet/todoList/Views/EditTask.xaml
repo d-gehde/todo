@@ -1,0 +1,30 @@
+﻿<Window x:Class="todoList.Views.EditTask"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="EditTask" Height="350" Width="525">
+    <Grid>
+        <Label x:Name="lblHead" FontSize="20" Foreground="#696969" Margin="0,0,0,280"/>
+
+        <Label FontSize="12" Foreground="#696969" Margin="0,30,430,255">Title:</Label>
+        <TextBox x:Name="txtbTitle" FontSize="14" Foreground="#696969" Margin="80,30,0,255" Text="{Binding Task.Title, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
+
+        <Label FontSize="12" Foreground="#696969" Margin="0,50,430,230">Category:</Label>
+        <TextBox x:Name="TxtbCategory" FontSize="14" Foreground="#696969" Margin="80,50,0,240" Text="{Binding Task.Category, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
+
+        <Label FontSize="12" Foreground="#696969" Margin="0,70,430,205">Priority:</Label>
+        <TextBox x:Name="TxtbPriority" FontSize="14" Foreground="#696969" Margin="80,70,0,215" Text="{Binding Task.Priority, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
+
+        <Label FontSize="12" Foreground="#696969" Margin="0,90,430,180">Start-Date:</Label>
+        <TextBox x:Name="TxtbStartDate" FontSize="12" Foreground="#696969" Margin="80,90,300,190"/>
+
+        <Label FontSize="12" Foreground="#696969" Margin="225,90,205,180">End-Date:</Label>
+        <TextBox x:Name="TxtbEndDate" FontSize="12" Foreground="#696969" Margin="305,90,0,190"/>
+
+        <Label FontSize="12" Foreground="#696969" Margin="0,110,430,155">Description:</Label>
+        <TextBox x:Name="TxtbDescription" FontSize="14" Foreground="#696969" Margin="80,110,0,65" Text="{Binding Task.Description, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
+
+        <Button x:Name="BtnOk" Content="Ok" FontSize="20" Background="Green" Margin="0,280,250,0"/>
+        <Button x:Name="BtnCancel" Content="Cancel" FontSize="20" Background="Red" Margin="250,280,0,0"/>
+
+    </Grid>
+</Window>
