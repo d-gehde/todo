@@ -21,7 +21,7 @@ namespace GoogleApiSample
             try
             {
                 Service service = new Service("Test");
-                service.setUserCredentials("denis.gehde@gmail.com", "teuFEL1989%");
+                service.setUserCredentials("denis.gehde@gmail.com", "");
 
                 AtomPerson person = new AtomPerson(AtomPersonType.Author);
                 person.Email = "denis.gehde@gmail.com";
